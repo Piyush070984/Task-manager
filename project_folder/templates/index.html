@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager | Organize Your Day Effectively</title>
+    <meta name="description" content="A task management app that helps you organize tasks by priority, category, and recurrence. Stay on top of your goals with our easy-to-use task manager.">
+    <meta name="keywords" content="task manager, to-do list, productivity, task scheduling, recurrence tasks, task prioritization">
+    <meta property="og:title" content="Task Manager | Organize Your Day Effectively">
+    <meta property="og:description" content="An effective task management tool to organize tasks and stay productive.">
+    <meta property="og:image" content="static/img/task-manager-logo.png">
+    <meta property="og:url" content="http://yourwebsite.com">
+    <meta name="author" content="Your Name">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Task Manager</h1>
+    </header>
+
+    <main>
+        <div id="theme-toggle">
+            <button id="toggle-button">Night</button>
+        </div>
+
+        <!-- Task Form Section -->
+        <section class="center-container" aria-labelledby="task-form-heading">
+            <h2 id="task-form-heading">Add a New Task</h2>
+            <form action="/add" method="POST" class="task-form">
+                <div class="input-group">
+                    <label for="task_name" class="label">Task Name:</label>
+                    <input type="text" id="task_name" name="task_name" class="input" autocomplete="off" required>
+                </div>
+                <div class="input-group">
+                    <label for="due_date" class="label">Due Date:</label>
+                    <input type="date" id="due_date" name="due_date" class="input" required>
+                </div>
+                <div class="input-group">
+                    <label for="recurrence" class="label">Recurrence:</label>
+                    <select id="recurrence" name="recurrence" class="input">
+                        <option value="none">None</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="category" class="label">Category:</label>
+                    <select id="category" name="category" class="input">
+                        <option value="work">Work</option>
+                        <option value="personal">Personal</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="priority" class="label">Priority:</label>
+                    <select id="priority" name="priority" class="input">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <button type="submit" aria-label="Add Task">Add Task</button>
+            </form>
+        </section>
+
+        <!-- Task List Section -->
+        <section class="task-list" aria-labelledby="task-list-heading">
+            <h2 id="task-list-heading">Your Tasks</h2>
+            <ul>
+                {% for task in tasks %}
+                <li>
+                    <strong>{{ task.name }}</strong> 
+                    <br> Due: {{ task.due_date }} 
+                    <br> Category: {{ task.category }} 
+                    <br> Priority: {{ task.priority }} 
+                    <br> Recurrence: {{ task.recurrence }}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+

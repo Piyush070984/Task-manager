@@ -1,0 +1,171 @@
+/* Light mode */
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+}
+
+.dark-mode {
+    background-color: #000000dd;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    color: #4672a1;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #4672a1;
+}
+
+/* Center container */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    position: relative;
+}
+
+/* Styling for the form */
+.task-form {
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 300px;
+    z-index: 1; /* Ensures the form stays above the card */
+}
+
+button {
+    background-color: #4672a1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #3a5b89;
+}
+
+/* Overlapping card */
+.card {
+    width: 500px;
+    height: 500px;
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+    position: absolute;
+    top: 39px;
+    z-index: 0;
+}
+
+/* Task list container */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Horizontally center the content */
+    justify-content: center; /* Vertically center the content */
+    margin-top: 30px;
+}
+
+.task-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;          /* Make the tasks take up full width of the task-list */
+    max-width: 400px;      /* Limit the width for better design */
+    text-align: left;      /* Align the text within each task item */
+}
+
+/* Theme toggle button styles */
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+#toggle-button {
+    padding: 17px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: rgb(0, 0, 0);
+    box-shadow: #cacaca0d 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+}
+
+#toggle-button:hover {
+    letter-spacing: 3px;
+    background-color: hsl(253, 87%, 12%);
+    color: white;
+    box-shadow: #1b0643 0px 7px 29px 0px;
+}
+
+#toggle-button:active {
+    letter-spacing: 3px;
+    background-color: hsl(261, 65%, 59%);
+    color: white;
+    box-shadow: hsl(261, 65%, 59%) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
+
+.input {
+    max-width: 190px;
+    height: 44px;
+    background-color: #05060f0a;
+    border-radius: .5rem;
+    margin-bottom: .7rem;
+    padding: 0 1rem;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+.label {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: .9rem;
+    font-weight: bold;
+    color: #05060f99;
+    transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+.input:hover, .input:focus, .input-group:hover .input {
+    outline: none;
+    border-color: #4957dd;
+}
+
+.input-group:hover .label, .input:focus {
+    color: #05060fc2;
+}
+
+/* Dark mode styles */
+.dark-mode .card {
+    background: #4a4a4a;
+    box-shadow: 15px 15px 30px #2a2a2a, -15px -15px 30px #6a6a6a;
+}
+
+.dark-mode button {
+    background-color: #303f6d;
+}
+
+.dark-mode button:hover {
+    background-color: #2a3560;
+}
